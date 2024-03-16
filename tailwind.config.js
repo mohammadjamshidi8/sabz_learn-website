@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        iranSans : ['IRANSans']
+      },
+      colors: {
+        gray : '#abb8c3',
+        textGray : '#f3f4f6'
+      }
+    },
   },
   plugins: [],
 }
