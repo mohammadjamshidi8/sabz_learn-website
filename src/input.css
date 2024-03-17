@@ -8,6 +8,30 @@
         src: url(../fonts/IRANSans/IRANSans.ttf);
     }
 
+    @font-face {
+        font-family: dana;
+        src: url(../fonts/dana-cufonfonts/dana\ black.ttf);
+        font-weight: 800;
+    }
+
+    @font-face {
+        font-family: dana;
+        src: url(../fonts/dana-cufonfonts/dana\ bold.ttf);
+        font-weight: 700;
+    }
+
+    @font-face {
+        font-family: dana;
+        src: url(../fonts/dana-cufonfonts/dana\ medium.ttf);
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: dana;
+        src: url(../fonts/dana-cufonfonts/dana\ light.ttf);
+        font-weight: 300;
+    }
+
     body {
         @apply font-iranSans
     }
@@ -17,5 +41,9 @@
 @layer components {
     .base-container {
         @apply w-[90%] mx-auto
+    }
+
+    .header-text {
+        @apply font-extrabold text-6xl font-dana tracking-tight
     }
 }
