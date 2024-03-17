@@ -8,12 +8,13 @@
     <title>سبزلرن | صفحه اصلی</title>
   </head>
   <body>
-    <!-- header start -->
-
-    <!-- top banner start -->
-    <div class="w-full hidden"></div>
-    <!-- top banner ends -->
-
+      
+      <!-- top banner start -->
+      <div class="w-full hidden"></div>
+      <!-- top banner ends -->
+      
+      <!-- header start -->
+      
     <header class="w-full h-screen">
       <!-- top nav start -->
       <div
@@ -29,11 +30,10 @@
 
           <div>
             <ul class="flex items-center gap-x-10">
-              <li class="flex gap-x-1 items-center">
-                <a class="transition duration-75 hover:text-green-500" href="#"
-                  >فرانت اند</a
-                >
-                <svg
+              <li id="menu-dropdown" class="flex flex-col gsp-y-4 relative group">
+
+                  <a class="flex gap-x-1 transition duration-75 hover:text-green-500" href="#"
+                  >فرانت اند <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -46,103 +46,185 @@
                     stroke-linejoin="round"
                     d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
-                </svg>
+                </svg></a>
+
+                <div class="rounded-md absolute top-12 w-max z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-500">
+                  <div class="bg-white flex flex-col gap-y-3 px-8 py-5 rounded-md">
+                    <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش Html</a>
+                    <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش Css</a>
+                    <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش Flexbox </a>
+                    <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش تیلویند</a>
+                    <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش اصولی طراحی قالب</a>
+                    <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش بوت استرپ</a>
+                    <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش حاوا اسکریپت</a>
+                    <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش ریکت</a>
+                  </div>
+                </div>
+
               </li>
-              <li class="flex gap-x-1 items-center">
-                <a class="transition duration-75 hover:text-green-500" href="#"
-                  >امنیت</a
-                >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
-              </li>
-              <li class="flex gap-x-1 items-center">
-                <a class="transition duration-75 hover:text-green-500" href="#"
-                  >پایتون</a
-                >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
-              </li>
-              <li class="flex gap-x-1 items-center">
-                <a class="transition duration-75 hover:text-green-500" href="#"
-                  >پی اچ پی</a
-                >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
-              </li>
-              <li class="flex gap-x-1 items-center">
-                <a class="transition duration-75 hover:text-green-500" href="#"
-                  >ارتقای مهارت ها</a
-                >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
-              </li>
-              <li class="flex gap-x-1 items-center">
-                <a class="transition duration-75 hover:text-green-500" href="#"
-                  >مقالات</a
-                >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
-              </li>
+
+              <li id="menu-dropdown" class="flex flex-col gsp-y-4 relative group">
+
+                <a class="flex gap-x-1 transition duration-75 hover:text-green-500" href="#"
+                >امنیت<svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
+              </svg></a>
+
+              <div class="rounded-md absolute top-12 w-max z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-500">
+                <div class="bg-white flex flex-col gap-y-3 px-8 py-5 rounded-md">
+                  <a class="transition duration-200 text-gray-700 hover:text-black" href="#">نقشه راه ورود به دنیای هک و امنیت</a>
+                  <a class="transition duration-200 text-gray-700 hover:text-black" href="#">شبکه با گرایش امنیت</a>
+                  <a class="transition duration-200 text-gray-700 hover:text-black" href="#">لینوکس با گرایش امنیت</a>
+                  <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش هکر قانونمند</a>
+                  <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش کالی لینوکس</a>
+                  <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش پایتون سیاه</a>
+                  <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش Burp Suite</a>
+                  <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش جاوااسکریپت سیاه</a>
+                </div>
+              </div>
+
+            </li>
+
+            <li id="menu-dropdown" class="flex flex-col gsp-y-4 relative group">
+
+              <a class="flex gap-x-1 transition duration-75 hover:text-green-500" href="#"
+              >پایتون<svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+              />
+            </svg></a>
+
+            <div class="rounded-md absolute top-12 w-max z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-500">
+              <div class="bg-white flex flex-col gap-y-3 px-8 py-5 rounded-md">
+                <a class="transition duration-200 text-gray-700 hover:text-black" href="#">دوره آموزش پایتون</a>
+                <a class="transition duration-200 text-gray-700 hover:text-black" href="#">پروژه های کاربردی با پایتون</a>
+                <a class="transition duration-200 text-gray-700 hover:text-black" href="#">بهینه نویسی کدها در پایتون</a>
+                <a class="transition duration-200 text-gray-700 hover:text-black" href="#">متخصص جنگو</a>
+                <a class="transition duration-200 text-gray-700 hover:text-black" href="#">مصور سازی داده با پایتون</a>
+              </div>
+            </div>
+
+          </li>
+
+          <li id="menu-dropdown" class="flex flex-col gsp-y-4 relative group">
+
+            <a class="flex gap-x-1 transition duration-75 hover:text-green-500" href="#"
+            >پی اچ پی<svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+            />
+          </svg></a>
+
+          <div class="rounded-md absolute top-12 w-max z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-500">
+            <div class="bg-white flex flex-col gap-y-3 px-8 py-5 rounded-md">
+              <a class="transition duration-200 text-gray-700 hover:text-black" href="#">ربات تلگرام با PHP</a>
+              <a class="transition duration-200 text-gray-700 hover:text-black" href="#">پروژه های کاربردی با PHP</a>
+            </div>
+          </div>
+
+        </li>
+
+        <li id="menu-dropdown" class="flex flex-col gsp-y-4 relative group">
+
+          <a class="flex gap-x-1 transition duration-75 hover:text-green-500" href="#"
+          >ارتقای مهارت ها<svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+          />
+        </svg></a>
+
+        <div class="rounded-md absolute top-12 w-max z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-500">
+          <div class="bg-white flex flex-col gap-y-3 px-8 py-5 rounded-md">
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">الگوریتم و ساختمان داده</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش websocket</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">گیت و گیت هاب/a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش GraphQL</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">توسعه کتابخانه با Js</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">افزونه نویسی با Js</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">Clean Code برای Js</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">دیپلوی پروژه های Js</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">دوره Mern Stack</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش Regex</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">NPM برای جاوااسکریپت کارها</a>
+            <a class="transition duration-200 text-gray-700 hover:text-black" href="#">آموزش کاربردی Vscode</a>
+
+          </div>
+        </div>
+
+      </li>
+
+      <li id="menu-dropdown" class="flex flex-col gsp-y-4 relative group">
+
+        <a class="flex gap-x-1 transition duration-75 hover:text-green-500" href="#"
+        >مقالات<svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m19.5 8.25-7.5 7.5-7.5-7.5"
+        />
+      </svg></a>
+
+      <div class="rounded-md absolute top-12 w-max z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-500">
+        <div class="bg-white flex flex-col gap-y-3 px-8 py-5 rounded-md">
+          <a class="transition duration-200 text-gray-700 hover:text-black" href="#">اچ تی ام ال</a>
+          <a class="transition duration-200 text-gray-700 hover:text-black" href="#">بوت استرپ</a>
+          <a class="transition duration-200 text-gray-700 hover:text-black" href="#">پروژه های برنامه نویسی</a>
+          <a class="transition duration-200 text-gray-700 hover:text-black" href="#">تست نفوذ و امنیت وب</a>
+          <a class="transition duration-200 text-gray-700 hover:text-black" href="#">JQuery</a>
+          <a class="transition duration-200 text-gray-700 hover:text-black" href="#">سی اس اس</a>
+          <a class="transition duration-200 text-gray-700 hover:text-black" href="#">شروع برنامه نویسی</a>
+          <a class="transition duration-200 text-gray-700 hover:text-black" href="#">طراحی سایت</a>
+          <a class="transition duration-200 text-gray-700 hover:text-black" href="#">ویو جی اس</a>
+        </div>
+      </div>
+
+    </li>
+             
             </ul>
           </div>
         </div>
@@ -158,7 +240,7 @@
               type="search"
               id="search-bar"
               placeholder="چی میخای یاد بگیری؟"
-              class="w-full h-full bg-textGray px-4 outline-none rounded-full placeholder:text-gray"
+              class="w-full h-full bg-textGray px-4 outline-none rounded-full placeholder:text-grey"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -240,11 +322,11 @@
               class="absolute w-40 h-40 bg-green-500 blur-3xl opacity-35 rounded-full top-56 right-16 z-[2]"
             ></div>
             <div
-              class="absolute w-40 h-40 bg-blue-600 blur-3xl opacity-40 rounded-full bottom-56 right-52 z-[2]"
+              class="absolute w-40 h-40 bg-blue-600 blur-3xl opacity-40 rounded-full bottom-56 right-80 z-[2]"
             ></div>
 
             <div
-              class="flex flex-col gap-y-10 absolute top-1/2 -translate-y-1/2 z-[3]"
+              class="flex flex-col gap-y-10 absolute top-1/2 -translate-y-1/2 z-[3] pr-14"
             >
               <h1 class="header-text">آکادمی آموزش</h1>
               <h2 class="header-text">برنامه نویسی سبزلرن</h2>

@@ -8,7 +8,7 @@ module.exports = {
         dana: ['dana']
       },
       colors: {
-        gray : '#abb8c3',
+        grey : '#abb8c3',
         textGray : '#f3f4f6',
         abi: '#0fa5e7',
         lightGreen: '#85d529',
