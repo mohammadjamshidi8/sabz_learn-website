@@ -39,8 +39,9 @@
 
 
 @layer components {
-    .base-container {
-        @apply w-[90%] mx-auto
+
+    .content-container {
+        @apply w-[80%] mx-auto
     }
 
     .header-text {
