@@ -9,6 +9,12 @@
     }
 
     @font-face {
+        font-family: IRANSans;
+        src: url(../fonts/IRANSans/IRANSans_Black.ttf);
+        font-weight: 800;
+    }
+
+    @font-face {
         font-family: dana;
         src: url(../fonts/dana-cufonfonts/dana\ black.ttf);
         font-weight: 800;
@@ -41,11 +47,60 @@
 @layer components {
 
     .content-container {
-        @apply w-[80%] mx-auto
+        @apply w-[70%] mx-auto
+    }
+
+    .header {
+        @apply w-full h-screen
+    }
+
+    /* top nav style start */
+
+    .top-nav {
+        @apply w-[90%] mx-auto h-[10vh] flex justify-between items-center py-6
+    }
+
+    .top-nav__right {
+        @apply flex items-center gap-x-6
+    }
+
+    .top-nav__menu {
+        @apply flex items-center gap-x-10
+    }
+
+    .top-nav__menu-link {
+        @apply flex gap-x-1 transition duration-75 hover:text-green-500
+    }
+
+    .top-nav__menu-dropdown {
+        @apply rounded-md absolute top-12 w-max z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-500
+    }
+
+    .top-nav__menu-dropdown div {
+        @apply bg-white flex flex-col gap-y-3 px-8 py-5 rounded-md
+    }
+
+    .top-nav__menu-dropdown div a {
+        @apply transition duration-200 text-gray-700 hover:text-black
     }
 
     .header-text {
         @apply font-extrabold text-6xl font-dana tracking-tight
     }
+
+    .top-nav__search-container {
+        @apply relative w-[300px] h-full
+    }
+
+    .top-nav__search-container input {
+        @apply w-full h-full bg-textGray px-4 outline-none rounded-full placeholder:text-grey
+    }
+
+    .top-nav__search-container svg {
+        @apply w-6 h-6 absolute top-1/2 -translate-y-1/2 left-3
+    }
+
+    /* top nav style ends */
+
 
 }
