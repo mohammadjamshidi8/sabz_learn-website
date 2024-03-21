@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./**/*.{html,js}"],
+  content: ["./*.{html,js}"],
   theme: {
     extend: {
       fontFamily: {
         iranSans : ['IRANSans'],
-        dana: ['dana']
+        dana: ['dana'],
       },
       colors: {
         grey : '#abb8c3',
@@ -14,7 +14,7 @@ module.exports = {
         lightGreen: '#85d529',
         darkGreen: '#41700a',
         dark: '#111828',
-      }
+      },
     },
   },
   plugins: [],
