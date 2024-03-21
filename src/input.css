@@ -47,6 +47,10 @@
         @apply w-full h-screen;
     }
 
+}
+
+@layer components{
+
     /* top nav style start */
 
     .top-nav {
