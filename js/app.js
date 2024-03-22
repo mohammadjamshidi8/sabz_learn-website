@@ -1,3 +1,5 @@
+AOS.init();
+
 // new course slider start
 const swiper = new Swiper('.swiper', {
     // Optional parameters

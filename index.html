@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="./src/swiper-bundle.min.css">
   <link rel="stylesheet" href="./src/output.css" />
+  <link href="./src/aos.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>سبزلرن | صفحه اصلی</title>
 </head>
@@ -211,7 +212,7 @@
     <div class="w-full h-[90vh] flex items-center justify-between">
       <!-- content box start -->
 
-      <div class="w-1/2 h-full flex justify-center">
+      <div data-aos="fade-left" class="w-1/2 h-full flex justify-center">
         <div class="w-2/3 flex flex-col gap-y-10 relative z-[1]">
           <div class="absolute w-40 h-40 bg-green-500 blur-3xl opacity-35 rounded-full top-56 right-16 z-[2]"></div>
           <div class="absolute w-40 h-40 bg-blue-600 blur-3xl opacity-40 rounded-full bottom-56 right-80 z-[2]"></div>
@@ -247,7 +248,7 @@
 
       <!-- hero image start -->
 
-      <div class="w-1/2 h-full flex items-center">
+      <div data-aos="fade-right" class="w-1/2 h-full flex items-center">
         <img src="./images/hero/hero-light.svg" class="w-full h-full bg-cover" alt="hero-image" />
       </div>
 
@@ -269,7 +270,7 @@
 
     <!-- laset course start -->
 
-    <div class="content-container flex flex-col gap-y-5">
+    <div data-aos="fade-right" class="content-container flex flex-col gap-y-5">
 
       <!-- last course title start -->
 
@@ -946,7 +947,7 @@
 
     <!-- road maps start -->
 
-    <div class="content-container flex flex-col gap-y-5 mt-36">
+    <div data-aos="fade-left" class="content-container flex flex-col gap-y-5 mt-36">
 
       <div class="flex justify-between items-center">
 
@@ -1040,7 +1041,7 @@
 
     <!-- road maps start -->
 
-    <div class="content-container flex flex-col gap-y-5 mt-36">
+    <div data-aos="fade-right" class="content-container flex flex-col gap-y-5 mt-36">
 
       <div class="flex justify-between items-center">
 
@@ -1141,7 +1142,7 @@
 
     <!-- new course start -->
 
-    <div class="content-container relative">
+    <div data-aos="fade-left" class="content-container relative">
       <div class="w-32 h-32 absolute -top-4 -left-32 bg-emerald-500 blur-3xl opacity-40"></div>
       <div class="swiper flex flex-col gap-y-5 mt-36">
 
@@ -1466,7 +1467,7 @@
 
     <!-- articles section start -->
 
-    <div class="content-container flex flex-col gap-y-5 mt-32">
+    <div data-aos="fade-right" class="content-container flex flex-col gap-y-5 mt-32">
 
       <div class="flex justify-between items-center">
 
@@ -1677,7 +1678,7 @@
 
     <!-- popular course start -->
 
-    <div class="content-container flex flex-col gap-y-5 mt-32">
+    <div data-aos="fade-left" class="content-container flex flex-col gap-y-5 mt-32">
 
       <div class="flex justify-between items-center">
 
@@ -2134,13 +2135,84 @@
     </div>
 
     <!-- popular course ends -->
-
-
   </section>
 
   <!-- main section ends -->
 
+
+  <!-- footer start -->
+
+  <footer class="bg-white w-full flex flex-col gap-y-6 mt-32 py-16">
+    <div class="content-container grid grid-cols-4 gap-x-5 ">
+      <div class="flex flex-col gap-y-5">
+        <h4 class="font-black text-lg">درباره ما</h4>
+        <span class="leading-7 font-thin line-clamp-4 w-[300px]">
+          سبزلرن یک اکادمی خصوصی آموزش برنامه نویسی هست که با هدف تحویل نیروی متخصص بر پایه تولید محتوای غیرسطحی فعالیت
+          میکند
+        </span>
+      </div>
+
+      <div>
+        <ul class="flex flex-col gap-y-5">
+          <li class="font-black text-lg">دسترسی سریع</li>
+          <li class="transition duration-200 hover:text-green-500">
+            <a href="#">قوانین و مقررات</a>
+          </li>
+          <li class="transition duration-200 hover:text-green-500">
+            <a href="#">ارسال تیکت</a>
+          </li>
+          <li class="transition duration-200 hover:text-green-500">
+            <a href="#">همه دوره ها</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="flex flex-col gap-y-5">
+          <li class="font-black text-lg">لینک های مفید</li>
+          <li class="transition duration-200 hover:text-green-500">
+            <a href="#">آموزش جاوااسکریپت</a>
+          </li>
+          <li class="transition duration-200 hover:text-green-500">
+            <a href="#">آموزش پایتون</a>
+          </li>
+          <li class="transition duration-200 hover:text-green-500">
+            <a href="#">آموزش Html</a>
+          </li>
+          <li class="transition duration-200 hover:text-green-500">
+            <a href="#">آموزش Css</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="flex flex-col gap-y-5">
+          <li class="font-black text-lg">شبکه های اجتماعی</li>
+          <li class="flex gap-x-1 items-center">
+            <img src="./images/social/instagram.svg" class="w-10" alt="">
+            <a href="#"> _sabzlearn@ </a>
+          </li>
+          <li class="flex items-center gap-x-1">
+            <img src="./images/social/telegram.svg" class="w-10" alt="">
+            <a href="#">sabzlearn@</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content-container h-[1px] bg-slate-300"></div>
+
+    <div class="content-container flex justify-between items-center font-thin">
+      <span class="tracking-wide">ساخته شده با ❤️ در سبزلرن</span>
+      <span>کلیه حقوق مادی و معنوی سایت برای سبز لرن محفوظ است.</span>
+    </div>
+
+  </footer>
+
+  <!-- footer ends -->
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="./js/app.js"></script>
 </body>
 
