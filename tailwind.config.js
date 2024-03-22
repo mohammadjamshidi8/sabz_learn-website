@@ -14,6 +14,7 @@ module.exports = {
         lightGreen: '#85d529',
         darkGreen: '#41700a',
         offDark: '#111828',
+        zard: '#fbbf24',
       },
     },
   },
