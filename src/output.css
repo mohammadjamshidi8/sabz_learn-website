@@ -912,6 +912,14 @@ video {
   top: 14rem;
 }
 
+.-left-60 {
+  left: -15rem;
+}
+
+.left-60 {
+  left: 15rem;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -998,6 +1006,10 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
 }
 
 .box-border {
@@ -2360,6 +2372,11 @@ video {
 .bg-zard {
   --tw-bg-opacity: 1;
   background-color: rgb(251 191 36 / var(--tw-bg-opacity));
+}
+
+.bg-sky-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 189 248 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
