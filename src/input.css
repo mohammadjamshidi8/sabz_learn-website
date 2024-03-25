@@ -47,6 +47,10 @@
         @apply w-full h-screen;
     }
 
+    body {
+        @apply bg-textGray font-dana
+    }
+
 }
 
 @layer components{
@@ -96,4 +100,21 @@
     .top-nav__search-container svg {
         @apply w-6 h-6 absolute top-1/2 -translate-y-1/2 left-3;
     }
+
+
+    /* category page styles start */
+
+    #sort-items {
+        @apply flex items-center gap-x-1 h-full
+    }
+
+    #sort-items input {
+        @apply opacity-0 invisible
+    }
+
+    #sort-items label {
+        @apply flex items-center h-full border-blue-500 cursor-pointer text-sm
+    }
+
+    /* category page styles ends */
 }
