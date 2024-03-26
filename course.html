@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <title>آموزش جامع و پروژه محور Tailwind css</title>
+</head>
+
+<body>
+
+    <!-- header start -->
+
+    <header class="w-full">
+        <!-- top nav start -->
+
+        <div class="bg-white">
+            <div class="w-[90%] mx-auto flex justify-between items-center py-6">
+                <!-- logo and menu start -->
+                <div class="top-nav__right">
+                    <div class="">
+                        <a href="#">
+                            <img src="./images/logo/logo.webp" class="h-12" alt="" />
+                        </a>
+                    </div>
+
+                    <div>
+                        <ul class="top-nav__menu">
+                            <li class="flex flex-col gap-y-4 relative group">
+
+                                <a class="top-nav__menu-link" href="#">فرانت اند <svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg></a>
+
+                                <div class="top-nav__menu-dropdown">
+                                    <div>
+                                        <a href="#">آموزش Html</a>
+                                        <a href="#">آموزش Css</a>
+                                        <a href="#">آموزش Flexbox </a>
+                                        <a href="#">آموزش تیلویند</a>
+                                        <a href="#">آموزش اصولی طراحی قالب</a>
+                                        <a href="#">آموزش بوت استرپ</a>
+                                        <a href="#">آموزش حاوا اسکریپت</a>
+                                        <a href="#">آموزش ریکت</a>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                            <li class="flex flex-col gap-y-4 relative group">
+
+                                <a class="top-nav__menu-link" href="#">امنیت<svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg></a>
+
+                                <div class="top-nav__menu-dropdown">
+                                    <div>
+                                        <a href="#">نقشه راه ورود به دنیای هک و امنیت</a>
+                                        <a href="#">شبکه با گرایش امنیت</a>
+                                        <a href="#">لینوکس با گرایش امنیت</a>
+                                        <a href="#">آموزش هکر قانونمند</a>
+                                        <a href="#">آموزش کالی لینوکس</a>
+                                        <a href="#">آموزش پایتون سیاه</a>
+                                        <a href="#">آموزش Burp Suite</a>
+                                        <a href="#">آموزش جاوااسکریپت سیاه</a>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                            <li class="flex flex-col gap-y-4 relative group">
+
+                                <a class="top-nav__menu-link" href="#">پایتون<svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg></a>
+
+                                <div class="top-nav__menu-dropdown">
+                                    <div>
+                                        <a href="#">دوره آموزش پایتون</a>
+                                        <a href="#">پروژه های کاربردی با پایتون</a>
+                                        <a href="#">بهینه نویسی کدها در پایتون</a>
+                                        <a href="#">متخصص جنگو</a>
+                                        <a href="#">مصور سازی داده با پایتون</a>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                            <li class="flex flex-col gap-y-4 relative group">
+
+                                <a class="top-nav__menu-link" href="#">پی اچ پی<svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg></a>
+
+                                <div class="top-nav__menu-dropdown">
+                                    <div>
+                                        <a href="#">ربات تلگرام با PHP</a>
+                                        <a href="#">پروژه های کاربردی با PHP</a>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                            <li class="flex flex-col gap-y-4 relative group">
+
+                                <a class="top-nav__menu-link" href="#">ارتقای مهارت ها<svg
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg></a>
+
+                                <div class="top-nav__menu-dropdown">
+                                    <div>
+                                        <a href="#">الگوریتم و ساختمان داده</a>
+                                        <a href="#">آموزش websocket</a>
+                                        <a href="#">گیت و گیت هاب/a>
+                                            <a href="#">آموزش GraphQL</a>
+                                            <a href="#">توسعه کتابخانه با Js</a>
+                                            <a href="#">افزونه نویسی با Js</a>
+                                            <a href="#">Clean Code برای Js</a>
+                                            <a href="#">دیپلوی پروژه های Js</a>
+                                            <a href="#">دوره Mern Stack</a>
+                                            <a href="#">آموزش Regex</a>
+                                            <a href="#">NPM برای جاوااسکریپت کارها</a>
+                                            <a href="#">آموزش کاربردی Vscode</a>
+                            </li>
+
+                            <li class="flex flex-col gap-y-4 relative group">
+
+                                <a class="top-nav__menu-link" href="#">مقالات<svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg></a>
+
+                                <div class="top-nav__menu-dropdown">
+                                    <div>
+                                        <a href="#">اچ تی ام ال</a>
+                                        <a href="#">بوت استرپ</a>
+                                        <a href="#">پروژه های برنامه نویسی</a>
+                                        <a href="#">تست نفوذ و امنیت وب</a>
+                                        <a href="#">JQuery</a>
+                                        <a href="#">سی اس اس</a>
+                                        <a href="#">شروع برنامه نویسی</a>
+                                        <a href="#">طراحی سایت</a>
+                                        <a href="#">ویو جی اس</a>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- logo and menu ends -->
+
+                <!-- profile section start -->
+                <div class="flex items-center h-12 gap-x-5">
+                    <!-- search bar start -->
+
+                    <div class="top-nav__search-container">
+                        <input type="search" id="search-bar" placeholder="چی میخای یاد بگیری؟" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="gray">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </div>
+
+                    <!-- search bar ends -->
+
+                    <!-- switch theme icon start -->
+
+                    <div class="h-full rounded-full bg-textGray flex items-center justify-center w-12">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="gray" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                        </svg>
+                    </div>
+
+                    <!-- switch theme icon ends -->
+
+                    <!-- user profile start -->
+
+                    <div class="h-full rounded-full bg-textGray flex items-center justify-center w-12">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="gray" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                    </div>
+
+                    <!-- user profile ends -->
+                </div>
+                <!-- profile section ends -->
+            </div>
+        </div>
+
+    </header>
+
+    <!-- header ends -->
+
+
+    <!-- course details start -->
+
+    <section class="content-container flex flex-col gap-y-2 mt-10">
+        <!-- breadcrumb start -->
+
+        <div class="flex items-center bg-white gap-x-10 h-12 px-4 rounded-md">
+            <div class="w-max breadcrumb-pseudo">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg>
+            </div>
+
+            <div class="w-max breadcrumb-pseudo">
+                <a href="#">دوره ها</a>
+            </div>
+
+            <div class="breadcrumb-pseudo w-max">
+                <a href="#">فرانت اند</a>
+            </div>
+
+            <div>
+                <a href="#">آموزش جامع و پروژه محور Tailwind css </a>
+            </div>
+
+        </div>
+
+        <!-- breadcrumb ends -->
+
+        <div class="flex items-center justify-between gap-x-10 mt-10">
+            <div class="w-1/2 flex flex-col gap-y-6">
+                <h1 class="text-3xl font-medium">آموزش جامع و پروژه محور Tailwind css</h1>
+                <span class="line-clamp-3 text-slate-500 text-xl">
+                    tailwind css یک فریمورک Utility First هست، این فریمورک متشکل از یکسری کلاس های آماده ای هست که شما
+                    برای پیاده سازی هرگونه دیزاینی میتونید ازش بهره ببرید. توجه کنید که tailwind css هیچ کامپوننت اماده
+                    ای در خود ندارد. و در این دوره قراره به صورت جامع این فریمورک رو بررسی کنیم و در نهایت یک پروژه
+                    فروشگاهی کاملا استاندارد پیاده سازی میکنیم. برای اینکه بیشتر راجب دوره بدونید ویدیو معرفی رو حتما
+                    مشاهده کنید.
+                </span>
+
+                <div class="bg-white flex items-center justify-between rounded-md p-3">
+                    <span class="text-red-500 font-bold text-2xl">پیشنهاد شگفت انگیز</span>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <button
+                        class="flex px-5 py-3 gap-x-1 text-white items-center bg-green-500 hover:bg-green-700 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
+                        <span>ثبت نام در دوره</span>
+                    </button>
+
+                    <span class="font-black text-xl">۷۸۰,۰۰۰ تومان</span>
+                </div>
+            </div>
+
+
+            <div class="w-1/2 rounded-xl overflow-hidden">
+                <video controls>
+                    <source
+                        src="https://tech.sabzlearn.ir/uploads/ebadidev/tailwind/01_Into-1.mp4?h=kuk33eN5uNQSkgq1FJ_YBA&t=1711493655">
+                </video>
+            </div>
+
+        </div>
+
+        <div class="flex items-center mt-10 gap-x-5 h-[200px]">
+            <div class="w-2/3 grid grid-cols-3 grid-rows-2 gap-6 h-full">
+                <div class="bg-white rounded-md flex items-center gap-x-3 py-5 px-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-12 h-12 text-green-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                    <div class="flex flex-col gap-y-1">
+                        <h4 class="font-black">وضعیت دوره</h4>
+                        <span class="font-thin">تکمیل شده</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-md flex items-center gap-x-3 py-5 px-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-12 h-12 text-green-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+                    <div class="flex flex-col gap-y-1">
+                        <h4 class="font-black">مدت زمان دوره</h4>
+                        <span class="font-thin">۲۱ ساعت</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-md flex items-center gap-x-3 py-5 px-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-12 h-12 text-green-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                    </svg>
+
+                    <div class="flex flex-col gap-y-1">
+                        <h4 class="font-black">آخرین بروزرسانی</h4>
+                        <span class="font-thin">۱۴۰۲/۰۵/۱۲</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-md flex items-center gap-x-3 py-5 px-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-12 h-12 text-green-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                    </svg>
+
+                    <div class="flex flex-col gap-y-1">
+                        <h4 class="font-black">روش پشتیبانی</h4>
+                        <span class="font-thin">آنلاین</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-md flex items-center gap-x-3 py-5 px-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-12 h-12 text-green-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
+                    </svg>
+
+                    <div class="flex flex-col gap-y-1">
+                        <h4 class="font-black">پیش نیاز</h4>
+                        <span class="font-thin">HTML & CSS</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-md flex items-center gap-x-3 py-5 px-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-12 h-12 text-green-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                    </svg>
+
+                    <div class="flex flex-col gap-y-1">
+                        <h4 class="font-black">نوع مشاهده</h4>
+                        <span class="font-thin">به صورت آنلاین</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-1/3 rounded-xl bg-white flex flex-col justify-evenly h-full p-4 ">
+                <div class="flex gap-x-3 items-center">
+                    <div class="bg-textGray rounded-md flex items-center gap-x-3 py-3 px-4 w-1/2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-12 h-12 text-green-500">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                        </svg>
+
+
+                        <div class="flex flex-col gap-y-1">
+                            <h4 class="">۱۳۱۷</h4>
+                            <span class="font-thin">دانشجو</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-textGray rounded-md flex items-center gap-x-3 py-3 px-4 w-1/2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-12 h-12 text-zard fill-zard">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                        </svg>
+
+
+
+                        <div class="flex flex-col gap-y-1">
+                            <h4 class="">۵.۰</h4>
+                            <span class="font-thin">رضایت</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center text-lg">
+                    <span>درصد تکمیل دوره</span>
+                    <span>۱۰۰٪</span>
+                </div>
+
+                <div>
+                    <div class="mb-1 text-base font-medium"></div>
+                    <div class="w-full text-left bg-textGray rounded-full h-2.5 mb-4">
+                        <div class="h-2.5 rounded-full bg-blue-500" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full flex justify-between gap-x-5 mt-10">
+            <div class="w-2/3">
+                <div class="rounded-xl p-3 bg-white relative z-20">
+                    <div
+                        class="flex items-center gap-x-1 before:content-[''] before:absolute before:h-[35px] before:w-[5px] before:bg-zard before:-right-1 before:top-5 before:z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-12 h-12 fill-zard text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                        </svg>
+                        <span class="text-2xl font-bold">توضیحات</span>
+                    </div>
+                    <div class="mt-5 px-4">
+                        <span>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
+                            است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
+                            تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی
+                            در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم
+                            افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان
+                            فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و
+                            شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات
+                            پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید
+                            سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
+                            مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای
+                            متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و
+                            آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای
+                            طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت
+                            می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و
+                            زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
+                            اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                            استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                            است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
+                            می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را
+                            می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و
+                            فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در
+                            ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای
+                            اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="rounded-xl p-3 bg-white relative z-20 mt-10">
+                    <div
+                        class="flex items-center gap-x-1 before:content-[''] before:absolute before:h-[35px] before:w-[5px] before:bg-sky-500 before:-right-1 before:top-5 before:z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-12 h-12 fill-sky-500 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
+
+                        <span class="text-2xl font-bold">سر فصل ها</span>
+                    </div>
+
+                    
+
+                    <div class="bg-gray-200 py-5 rounded-md mt-5 flex flex-col transition duration-500 ease-in">
+                        <div id="accordion-head" class="flex justify-between px-4 cursor-pointer">
+                            <div>
+                                <span>فصل اول - مباحث TailwindCss</span>
+                            </div>
+
+                            <div class="flex items-center gap-x-1 text-slate-500">
+                                <span>۲۱ جلسه</span>
+                                <span class="w-1 h-1 rounded-full bg-slate-500"></span>
+                                <span>۴ ساعت</span>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="accordion-body" class="px-4 bg-gray-200 overflow-hidden h-0">
+                            <div class="flex items-center justify-between py-2 border border-b-[1px] border-b-white">
+                                <div class="flex items-center gap-x-3">
+                                    <span class="px-2 bg-white">1</span>
+                                    <span>توضیح نحوه ارسال ایمیل برای دسترسی به دیزاین</span>
+                                </div>
+
+                                <div class="flex gap-x-1 items-center">
+                                    <span>۰۶:۵۱</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                    </svg>
+
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between py-2 border border-b-[1px] border-b-white">
+                                <div class="flex items-center gap-x-3">
+                                    <span class="px-2 bg-white">1</span>
+                                    <span>توضیح نحوه ارسال ایمیل برای دسترسی به دیزاین</span>
+                                </div>
+
+                                <div class="flex gap-x-1 items-center">
+                                    <span>۰۶:۵۱</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                    </svg>
+
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between py-2 border border-b-[1px] border-b-white">
+                                <div class="flex items-center gap-x-3">
+                                    <span class="px-2 bg-white">1</span>
+                                    <span>توضیح نحوه ارسال ایمیل برای دسترسی به دیزاین</span>
+                                </div>
+
+                                <div class="flex gap-x-1 items-center">
+                                    <span>۰۶:۵۱</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                    </svg>
+
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between py-2 border border-b-[1px] border-b-white">
+                                <div class="flex items-center gap-x-3">
+                                    <span class="px-2 bg-white">1</span>
+                                    <span>توضیح نحوه ارسال ایمیل برای دسترسی به دیزاین</span>
+                                </div>
+
+                                <div class="flex gap-x-1 items-center">
+                                    <span>۰۶:۵۱</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-xl p-3 bg-white relative z-20 mt-10">
+                    <div
+                        class="flex items-center gap-x-1 before:content-[''] before:absolute before:h-[35px] before:w-[5px] before:bg-zard before:-right-1 before:top-5 before:z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-12 h-12 fill-zard text-zard">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                        </svg>
+
+
+                        <span class="text-2xl font-bold">دوره های مرتبط</span>
+                    </div>
+
+                    <div class="rounded-md bg-gray-200 flex items-center justify-between p-3 mt-5">
+                        <div class="flex items-center gap-x-3">
+                            <img src="./images/courses/1402-10-20-17.40.16_11zon-768x432.webp" class="h-14 rounded-md"
+                                alt="">
+                            <span>
+                                <a href="#">آموزش بوت استرپ 5 مقدماتی تا پیشرفته (2023)</a>
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-x-1">
+                            <span class="text-sky-400">
+                                <a href="#">مشاهده</a>
+                            </span>
+                            <div class="bg-sky-400 rounded-full p-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor" class="w-3 h-3 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-md bg-gray-200 flex items-center justify-between p-3 mt-5">
+                        <div class="flex items-center gap-x-3">
+                            <img src="./images/courses/1402-10-20-17.40.16_11zon-768x432.webp" class="h-14 rounded-md"
+                                alt="">
+                            <span>
+                                <a href="#">آموزش بوت استرپ 5 مقدماتی تا پیشرفته (2023)</a>
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-x-1">
+                            <span class="text-sky-400">
+                                <a href="#">مشاهده</a>
+                            </span>
+                            <div class="bg-sky-400 rounded-full p-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor" class="w-3 h-3 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-md bg-gray-200 flex items-center justify-between p-3 mt-5">
+                        <div class="flex items-center gap-x-3">
+                            <img src="./images/courses/1402-10-20-17.40.16_11zon-768x432.webp" class="h-14 rounded-md"
+                                alt="">
+                            <span>
+                                <a href="#">آموزش بوت استرپ 5 مقدماتی تا پیشرفته (2023)</a>
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-x-1">
+                            <span class="text-sky-400">
+                                <a href="#">مشاهده</a>
+                            </span>
+                            <div class="bg-sky-400 rounded-full p-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor" class="w-3 h-3 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-md bg-gray-200 flex items-center justify-between p-3 mt-5">
+                        <div class="flex items-center gap-x-3">
+                            <img src="./images/courses/1402-10-20-17.40.16_11zon-768x432.webp" class="h-14 rounded-md"
+                                alt="">
+                            <span>
+                                <a href="#">آموزش بوت استرپ 5 مقدماتی تا پیشرفته (2023)</a>
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-x-1">
+                            <span class="text-sky-400">
+                                <a href="#">مشاهده</a>
+                            </span>
+                            <div class="bg-sky-400 rounded-full p-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2.5" stroke="currentColor" class="w-3 h-3 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/3 flex flex-col gap-y-5">
+                <div class="bg-white rounded-2xl flex flex-col gap-y-6 items-center py-8">
+                    <img src="./images/profiles/5872841a47b10069777793cbce83eacf.png" alt="">
+                    <h4 class="font-bold"> حمیدرضا عبادی | مدرس دوره </h4>
+                    <button
+                        class="rounded-full transition duration-300 px-6 py-3 border-[1px] border-green-500 text-green-500 hover:bg-green-500 hover:text-white"><a
+                            href="#">مشاهده پروفایل من</a></button>
+                </div>
+
+                <div class="flex flex-col gap-y-3 bg-white p-4 items-center rounded-2xl">
+                    <span class="font-bold text-lg"> لینک کوتاه آموزش </span>
+                    <div
+                        class="w-full p-3 border-[2px] bg-sky-100 border-dotted py-4 border-blue-400 rounded-lg flex items-center justify-between">
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-8 h-8 text-blue-500">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 0 0-9-9Z" />
+                            </svg>
+                        </button>
+
+                        <span class="text-xl text-blue-500">https://sabzlearn.ir/?p=144</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- course details ends -->
+
+
+
+    <!-- footer start -->
+
+    <footer class="bg-white w-full flex flex-col gap-y-6 mt-32 py-16">
+        <div class="content-container grid grid-cols-4 gap-x-5 ">
+            <div class="flex flex-col gap-y-5">
+                <h4 class="font-black text-lg">درباره ما</h4>
+                <span class="leading-7 font-thin line-clamp-4 w-[300px]">
+                    سبزلرن یک اکادمی خصوصی آموزش برنامه نویسی هست که با هدف تحویل نیروی متخصص بر پایه تولید محتوای
+                    غیرسطحی فعالیت
+                    میکند
+                </span>
+            </div>
+
+            <div>
+                <ul class="flex flex-col gap-y-5">
+                    <li class="font-black text-lg">دسترسی سریع</li>
+                    <li class="transition duration-200 hover:text-green-500">
+                        <a href="#">قوانین و مقررات</a>
+                    </li>
+                    <li class="transition duration-200 hover:text-green-500">
+                        <a href="#">ارسال تیکت</a>
+                    </li>
+                    <li class="transition duration-200 hover:text-green-500">
+                        <a href="#">همه دوره ها</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <ul class="flex flex-col gap-y-5">
+                    <li class="font-black text-lg">لینک های مفید</li>
+                    <li class="transition duration-200 hover:text-green-500">
+                        <a href="#">آموزش جاوااسکریپت</a>
+                    </li>
+                    <li class="transition duration-200 hover:text-green-500">
+                        <a href="#">آموزش پایتون</a>
+                    </li>
+                    <li class="transition duration-200 hover:text-green-500">
+                        <a href="#">آموزش Html</a>
+                    </li>
+                    <li class="transition duration-200 hover:text-green-500">
+                        <a href="#">آموزش Css</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <ul class="flex flex-col gap-y-5">
+                    <li class="font-black text-lg">شبکه های اجتماعی</li>
+                    <li class="flex gap-x-1 items-center">
+                        <img src="./images/social/instagram.svg" class="w-10" alt="">
+                        <a href="#"> _sabzlearn@ </a>
+                    </li>
+                    <li class="flex items-center gap-x-1">
+                        <img src="./images/social/telegram.svg" class="w-10" alt="">
+                        <a href="#">sabzlearn@</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-container h-[1px] bg-slate-300"></div>
+
+        <div class="content-container flex justify-between items-center font-thin">
+            <span class="tracking-wide">ساخته شده با ❤️ در سبزلرن</span>
+            <span>کلیه حقوق مادی و معنوی سایت برای سبز لرن محفوظ است.</span>
+        </div>
+
+    </footer>
+
+    <!-- footer ends -->
+
+
+    <script src="./js/course.js"></script>
+</body>
+
+</html>

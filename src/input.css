@@ -40,7 +40,7 @@
     
 
     .content-container {
-        @apply w-[70%] mx-auto;
+        @apply w-[65%] mx-auto;
     }
 
     .header {
@@ -117,4 +117,13 @@
     }
 
     /* category page styles ends */
+
+    /* course details style start */
+
+    .breadcrumb-pseudo {
+        @apply h-full flex items-center relative before:content-[''] before:absolute before:top-0 before:-skew-x-[45deg] before:-left-4 before:bg-textGray before:w-2 before:h-1/2 before:z-10  after:content-[''] after:absolute after:bottom-0 after:rotate-180 after:skew-x-[45deg] after:-left-4 after:bg-textGray after:w-2 after:h-1/2 after:z-10
+    }   
+
+    /* course details style ends */
 }
+
