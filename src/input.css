@@ -74,7 +74,7 @@
     }
 
     .top-nav__menu-dropdown {
-        @apply rounded-md absolute top-12 w-max z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-500;
+        @apply rounded-md absolute top-12 w-max z-50 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-500;
     }
 
     .top-nav__menu-dropdown div {
