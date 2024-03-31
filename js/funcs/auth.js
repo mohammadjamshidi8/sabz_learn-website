@@ -1,5 +1,7 @@
+import { showSwal, saveToLocalStorage } from "./utiles.js"
+
 const register = () => {
-    
+
     const fullNameInput = document.querySelector('#full-name')
     const usernameInput = document.querySelector('#username')
     const phoneInput = document.querySelector('#phone')
@@ -23,18 +25,15 @@ const register = () => {
     })
         .then(response => {
             if (response.status === 201) {
-                Swal.fire({
-                    title: "ثبت نام با موفقیت انجام شد",
-                    icon: "success"
-                  });
-               } else if (response.status === 409) {
-                Swal.fire({
-                    title: "نام کاربری یا ایمیل تکراری است",
-                    icon: "error"
-                  });
-               }
+                showSwal('ثبت نام با موفقیت انجام شد', 'success', 'رفتن به داشبورد', (resault) => { location.href = 'index.html' })
+            } else if (response.status === 409) {
+                showSwal('نام کاربری یا ایمیل تکراری است', 'error', 'اصلاح اطلاعات', () => { })
+            }
+            return response.json()
         })
-        .then(resault => console.log(resault))
+        .then(resault => {
+            saveToLocalStorage('user', { token: resault.accessToken })
+        })
 
 }
 
