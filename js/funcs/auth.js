@@ -37,4 +37,31 @@ const register = () => {
 
 }
 
-export { register }
+const login = () => {
+    const emailInput = document.querySelector('#login-email')
+    const passwordInput = document.querySelector('#login-password')
+
+    const userInfo = {
+        identifier: emailInput.value.trim(),
+        password: passwordInput.value.trim(),
+    }
+
+    fetch('http://localhost:4000/v1/auth/login', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userInfo)
+    }).then(res => {
+        if (res.status === 200) {
+            showSwal('وارد شدید', 'success', 'رفتن به داشبورد', (resault) => { location.href = 'index.html' })
+        } else if (res.status === 401) {
+            showSwal('نام کاربری یا رمز اشتباه است', 'error', 'تصحیح اطلاعات', () => { })
+        }
+        return res.json()
+    }).then(data => {
+        saveToLocalStorage('user', { token: data.accessToken })
+    })
+}
+
+export { register, login }
