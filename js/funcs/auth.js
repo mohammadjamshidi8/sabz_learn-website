@@ -1,5 +1,5 @@
 const register = () => {
-
+    
     const fullNameInput = document.querySelector('#full-name')
     const usernameInput = document.querySelector('#username')
     const phoneInput = document.querySelector('#phone')
@@ -21,7 +21,19 @@ const register = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUserInfo)
     })
-        .then(response => response.json())
+        .then(response => {
+            if (response.status === 201) {
+                Swal.fire({
+                    title: "ثبت نام با موفقیت انجام شد",
+                    icon: "success"
+                  });
+               } else if (response.status === 409) {
+                Swal.fire({
+                    title: "نام کاربری یا ایمیل تکراری است",
+                    icon: "error"
+                  });
+               }
+        })
         .then(resault => console.log(resault))
 
 }
