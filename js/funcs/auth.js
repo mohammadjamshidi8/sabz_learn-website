@@ -1,4 +1,4 @@
-import { showSwal,saveToLocalStorage,getFromLocalStorage } from "./utiles.js"
+import { showSwal, saveToLocalStorage, getFromLocalStorage } from "./utiles.js"
 
 const register = () => {
 
@@ -26,14 +26,14 @@ const register = () => {
         body: JSON.stringify(newUserInfos)
     }).then(res => {
         if (res.status === 201) {
-            showSwal("ثبت نام با موفقیت انجام شد","success","ورود به حساب کاربری",resault => location.href = 'login.html')
+            showSwal("ثبت نام با موفقیت انجام شد", "success", "ورود به حساب کاربری", resault => location.href = 'login.html')
             return res.json()
         } else if (res.status === 409) {
-            showSwal("نام کاربری یا ایمیل تکراری است","error","اصلاح اطلاعات")
+            showSwal("نام کاربری یا ایمیل تکراری است", "error", "اصلاح اطلاعات")
         }
     })
         .then(data => {
-            return data ? saveToLocalStorage('user',data.accessToken) : null
+            return data ? saveToLocalStorage('user', data.accessToken) : null
         })
 
 }
@@ -51,25 +51,33 @@ const login = () => {
 
     fetch('http://localhost:4000/v1/auth/login', {
         method: 'POST',
-        headers: {"Content-Type": "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userInfo)
     }).then(res => {
         if (res.status === 200) {
-            showSwal('خوش آمدید','success','صفحه اصلی',location.href = 'index.html')
+            showSwal('خوش آمدید', 'success', 'صفحه اصلی',resault => location.href = 'index.html')
             return res.json()
         } else if (res.status === 401) {
-            showSwal('نام کاربری یا رمز اشتباه است','error','اصلاح اطلاعات')
+            showSwal('نام کاربری یا رمز اشتباه است', 'error', 'اصلاح اطلاعات')
         }
-    })
-    .then(data => {
-        saveToLocalStorage('loginToken',data.accessToken)
-        return data
-    })
+    }).then(data => {
+            saveToLocalStorage('loginToken', data.accessToken)
+            console.log('data: ',data);
+        })
 }
 
 
 const getMe = () => {
-    // code
+    fetch('http://localhost:4000/v1/auth/me',{
+        headers: {
+            Authorization: `bearer ${getFromLocalStorage('loginToken')}`
+        },
+    }).then(res => res.json())
+    .then(data => {
+        const showUsername = document.querySelector('#show-username')
+        showUsername.innerHTML = data.name
+        showUsername.setAttribute('href','#')
+    })
 }
 
-export { register,login }
+export { register, login, getMe }

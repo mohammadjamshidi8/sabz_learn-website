@@ -12,6 +12,7 @@ const saveToLocalStorage = (key,value) => {
 
 const getFromLocalStorage = (key) => {
     const token = localStorage.getItem(key)
+    return token;
 }
 
 export { showSwal , saveToLocalStorage,getFromLocalStorage }
