@@ -1,23 +1,9 @@
-const showSwal = (title, icon, buttons, callback) => {
-    swal.fire({
+const showSwal = (title, icon, confirmButtonText,callback) => {
+    Swal.fire({
         title,
         icon,
-        buttons,
-    }). then(resault => callback(resault))
+        confirmButtonText
+    }).then(callback)
 }
 
-const saveToLocalStorage = (key,value) => {
-    return localStorage.setItem(key,JSON.stringify(value))
-}
-
-
-const getFromLocalStorage = () => {
-    return JSON.stringify(localStorage.getItem(key))
-}
-
-
-const getToken = () => {
-    return JSON.parse(localStorage.getItem('user')).token
-}
-
-export { showSwal,saveToLocalStorage,getFromLocalStorage,getToken }
+export { showSwal }
