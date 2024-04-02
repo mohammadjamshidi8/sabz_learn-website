@@ -6,4 +6,12 @@ const showSwal = (title, icon, confirmButtonText,callback) => {
     }).then(callback)
 }
 
-export { showSwal }
+const saveToLocalStorage = (key,value) => {
+    localStorage.setItem(key,value)
+}
+
+const getFromLocalStorage = (key) => {
+    const token = localStorage.getItem(key)
+}
+
+export { showSwal , saveToLocalStorage,getFromLocalStorage }

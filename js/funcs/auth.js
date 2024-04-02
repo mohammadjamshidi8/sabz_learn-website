@@ -1,4 +1,4 @@
-import { showSwal } from "./utiles.js"
+import { showSwal,saveToLocalStorage,getFromLocalStorage } from "./utiles.js"
 
 const register = () => {
 
@@ -26,19 +26,45 @@ const register = () => {
         body: JSON.stringify(newUserInfos)
     }).then(res => {
         if (res.status === 201) {
-            showSwal("ثبت نام با موفقیت انجام شد","success","رفتن به سایت",resault => location.href = 'index.html')
+            showSwal("ثبت نام با موفقیت انجام شد","success","ورود به حساب کاربری",resault => location.href = 'login.html')
             return res.json()
         } else if (res.status === 409) {
             showSwal("نام کاربری یا ایمیل تکراری است","error","اصلاح اطلاعات")
         }
     })
-        .then(data => console.log('data : ',data))
+        .then(data => {
+            return data ? saveToLocalStorage('user',data.accessToken) : null
+        })
 
 }
 
 
 const login = () => {
-    // code
+    const loginEmailInput = document.querySelector('#login-email')
+    const loginPasswordInput = document.querySelector('#login-password')
+
+    const userInfo = {
+        identifier: loginEmailInput.value.trim(),
+        password: loginPasswordInput.value.trim(),
+    }
+
+
+    fetch('http://localhost:4000/v1/auth/login', {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(userInfo)
+    }).then(res => {
+        if (res.status === 200) {
+            showSwal('خوش آمدید','success','صفحه اصلی',location.href = 'index.html')
+            return res.json()
+        } else if (res.status === 401) {
+            showSwal('نام کاربری یا رمز اشتباه است','error','اصلاح اطلاعات')
+        }
+    })
+    .then(data => {
+        saveToLocalStorage('loginToken',data.accessToken)
+        return data
+    })
 }
 
 
@@ -46,4 +72,4 @@ const getMe = () => {
     // code
 }
 
-export { register }
+export { register,login }
