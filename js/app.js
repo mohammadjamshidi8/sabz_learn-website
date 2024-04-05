@@ -1,3 +1,5 @@
+import { showAllCourses } from "./funcs/shared.js";
+
 const $ = document
 
 let firstLandingTitle = $.querySelector('#landing__text1')
@@ -34,21 +36,26 @@ const swiper = new Swiper('.swiper', {
 window.addEventListener('load', () => {
   let firstLandingText = 'آکادمی آموزش'
   let secondLandingText = 'برنامه نویسی سبزلرن'
-  let typeIndex = 0 
+  let typeIndex = 0
 
-  typeWriter(firstLandingText,typeIndex,firstLandingTitle)
-  typeWriter(secondLandingText,typeIndex,secondLandingTitle)
+  typeWriter(firstLandingText, typeIndex, firstLandingTitle)
+  typeWriter(secondLandingText, typeIndex, secondLandingTitle)
+
+  showAllCourses().then(data => {
+    console.log(data);
+  }
+  )
 })
 
 
-const typeWriter = (text,index,element) => {
+const typeWriter = (text, index, element) => {
   if (index < text.length) {
     element.innerHTML += text[index]
     index++
   }
 
   setTimeout(() => {
-    typeWriter(text,index,element)
+    typeWriter(text, index, element)
   }, 100);
 }
 // home page typewriter ends

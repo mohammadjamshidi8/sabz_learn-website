@@ -10,7 +10,3 @@ if (loginBtn) {
         getMe()
     })
 }
-
-window.addEventListener('load', () => {
-    getMe()
-})
