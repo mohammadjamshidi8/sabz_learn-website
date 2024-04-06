@@ -19,10 +19,10 @@ const showAllCourses = async () => {
 
           <div class="relative">
             <span class="absolute px-3 py-1 bg-green-500 text-white rounded-full top-3 right-3">۶۰%</span>
-            <img src="http://localhost:4000/v1/courses/${course.cover}" class="rounded-xl" alt="">
+            <img src="http://localhost:4000/courses/covers/${course.cover}" class="w-full rounded-xl mb-3 aspect-video h-[170px]" alt="">
           </div>
 
-          <div class="flex flex-col gap-y-4 px-6">
+          <div class="flex flex-col gap-y-4 px-6 mt-4">
 
             <h3 class="font-black font-dana line-clamp-1">${course.name}</h3>
 
@@ -35,7 +35,7 @@ const showAllCourses = async () => {
                   <path stroke-linecap="round" stroke-linejoin="round"
                     d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                 </svg>
-                <span>${course.creator}</span>
+                <span class="text-sm">${course.creator}</span>
               </div>
               <div class="flex gap-x-1 items-center">
                 <span class="text-yellow-600">۵.۰</span>
