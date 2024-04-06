@@ -1,4 +1,4 @@
-import { showAllCourses,showNewCourse } from "./funcs/shared.js";
+import { showAllCourses,showNewCourse,showArticle } from "./funcs/shared.js";
 
 const $ = document
 
@@ -44,6 +44,8 @@ window.addEventListener('load', () => {
   showAllCourses().then()
 
   showNewCourse().then()
+
+  showArticle().then()
 })
 
 

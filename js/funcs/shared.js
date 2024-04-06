@@ -2,19 +2,19 @@ import { getMe } from "./auth.js";
 
 
 window.addEventListener('load', () => {
-    getMe()
+  getMe()
 })
 
 
 const showAllCourses = async () => {
-    const coursesContainer = document.querySelector('#courses-container')
+  const coursesContainer = document.querySelector('#courses-container')
 
-    const res = await fetch('http://localhost:4000/v1/courses')
+  const res = await fetch('http://localhost:4000/v1/courses')
 
-    const courses = await res.json()
+  const courses = await res.json()
 
-    courses.map(course => {
-        coursesContainer.insertAdjacentHTML('beforeend', `
+  courses.map(course => {
+    coursesContainer.insertAdjacentHTML('beforeend', `
         <div class="bg-white rounded-md">
 
           <div class="relative">
@@ -64,19 +64,19 @@ const showAllCourses = async () => {
           </div>
         </div>
         `)
-    })
+  })
 }
 
 
 const showNewCourse = async () => {
-    const popularCourseContainer = document.querySelector('#popular-course-container')
+  const popularCourseContainer = document.querySelector('#popular-course-container')
 
 
-    const res = await fetch('http://localhost:4000/v1/courses/popular')
-    const data = await res.json()
+  const res = await fetch('http://localhost:4000/v1/courses/popular')
+  const data = await res.json()
 
-    data.map(course => {
-        popularCourseContainer.insertAdjacentHTML('beforeend', `
+  data.map(course => {
+    popularCourseContainer.insertAdjacentHTML('beforeend', `
         <div class="swiper-slide">
             <div class="bg-white rounded-md pb-10">
 
@@ -129,7 +129,61 @@ const showNewCourse = async () => {
             </div>
           </div>
         `)
-    })
+  })
 }
 
-export { showAllCourses,showNewCourse }
+const showArticle = async () => {
+  const articleContainer = document.querySelector('#article-container')
+
+  const res = await fetch('http://localhost:4000/v1/articles')
+
+  const articles = await res.json()
+  
+  articles.slice(0,4).forEach(article => {
+    articleContainer.insertAdjacentHTML('beforeend', `
+    <div class="bg-white rounded-md overflow-hidden">
+
+          <div class="relative">
+            <img src="http://localhost:4000/courses/covers/${article.cover}" alt="">
+            <span
+              class="w-full h-full absolute bg-gradient-to-t from-white to-transparent opacity-10 top-0 right-0"></span>
+          </div>
+
+          <div class="flex flex-col gap-y-4 px-6 mt-4">
+
+            <h3 class="font-bold font-dana line-clamp-1">${article.title}</h3>
+
+            <span class="line-clamp-4 font-thin">${article.description}</span>
+
+            <div class="flex items-center justify-between">
+              <div class="flex gap-x-1 items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+                <span class="font-bold text-[12px]">${article.creator.name}</span>
+              </div>
+              <div class="flex gap-x-1 items-center font-thin">
+                <span class="text-sm">۱۴۰۳/۰۱/۰۲</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                </svg>
+              </div>
+            </div>
+            <div class="w-[90%] h-[1px] bg-slate-300 self-center"></div>
+
+            <div class="flex justify-center">
+              <button class="hover:text-green-500">
+                <a href="#">مطالعه مقاله</a>
+              </button>
+            </div>
+          </div>
+        </div>
+    `)
+  })
+}
+
+export { showAllCourses, showNewCourse, showArticle }

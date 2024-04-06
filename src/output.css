@@ -1348,16 +1348,16 @@ body {
   height: 2rem;
 }
 
+.h-\[170px\] {
+  height: 170px;
+}
+
 .h-\[1px\] {
   height: 1px;
 }
 
 .h-\[200px\] {
   height: 200px;
-}
-
-.h-\[300px\] {
-  height: 300px;
 }
 
 .h-\[70px\] {
@@ -1374,18 +1374,6 @@ body {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[100px\] {
-  height: 100px;
-}
-
-.h-\[150px\] {
-  height: 150px;
-}
-
-.h-\[170px\] {
-  height: 170px;
 }
 
 .w-1 {
@@ -3003,6 +2991,10 @@ body {
   padding-bottom: 2rem;
 }
 
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -3093,6 +3085,10 @@ body {
   line-height: 2.25rem;
 }
 
+.text-\[5px\] {
+  font-size: 5px;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -3111,6 +3107,18 @@ body {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-\[10px\] {
+  font-size: 10px;
+}
+
+.text-\[8px\] {
+  font-size: 8px;
+}
+
+.text-\[12px\] {
+  font-size: 12px;
 }
 
 .font-black {
@@ -3318,6 +3326,10 @@ body {
 
 .opacity-80 {
   opacity: 0.8;
+}
+
+.opacity-10 {
+  opacity: 0.1;
 }
 
 .bg-blend-normal {
