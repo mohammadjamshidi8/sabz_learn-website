@@ -3085,8 +3085,8 @@ body {
   line-height: 2.25rem;
 }
 
-.text-\[5px\] {
-  font-size: 5px;
+.text-\[12px\] {
+  font-size: 12px;
 }
 
 .text-base {
@@ -3107,18 +3107,6 @@ body {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-\[10px\] {
-  font-size: 10px;
-}
-
-.text-\[8px\] {
-  font-size: 8px;
-}
-
-.text-\[12px\] {
-  font-size: 12px;
 }
 
 .font-black {
@@ -3324,16 +3312,12 @@ body {
   opacity: 0.4;
 }
 
-.opacity-80 {
-  opacity: 0.8;
-}
-
-.opacity-10 {
-  opacity: 0.1;
-}
-
 .opacity-60 {
   opacity: 0.6;
+}
+
+.opacity-80 {
+  opacity: 0.8;
 }
 
 .bg-blend-normal {

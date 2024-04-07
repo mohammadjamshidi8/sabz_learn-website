@@ -249,4 +249,39 @@ const showPopularCourse = async () => {
   })
 }
 
-export { showAllCourses, showNewCourse, showArticle, showPopularCourse }
+const showMenus = async () => {
+  const navbarMenuContainer = document.querySelector('#navbar-menu')
+
+  const res = await fetch('http://localhost:4000/v1/menus')
+
+  const menus = await res.json()
+
+  menus.map(menu => {
+    navbarMenuContainer.insertAdjacentHTML('beforeend',`
+    <li class="flex flex-col gap-y-4 relative group">
+
+                <div class="flex gap-x-1 items-center">
+                  <a class="top-nav__menu-link" href="#">${menu.title}</a>
+                  ${menu.submenus.length 
+                    ? `<svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </div>
+
+                <div class="top-nav__menu-dropdown">
+                  <div>
+                    ${menu.submenus.map((item) => 
+                     (`<a href="#">${item.title}</a>`)
+                    ).join('')}
+                  </div>
+                </div>
+
+              </li>`: ''}
+    `)
+  })
+  
+
+}
+
+export { showAllCourses, showNewCourse, showArticle, showPopularCourse,showMenus }

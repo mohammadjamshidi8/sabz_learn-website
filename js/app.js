@@ -1,4 +1,4 @@
-import { showAllCourses,showNewCourse,showArticle,showPopularCourse } from "./funcs/shared.js";
+import { showAllCourses,showNewCourse,showArticle,showPopularCourse,showMenus } from "./funcs/shared.js";
 
 const $ = document
 
@@ -41,13 +41,15 @@ window.addEventListener('load', () => {
   typeWriter(firstLandingText, typeIndex, firstLandingTitle)
   typeWriter(secondLandingText, typeIndex, secondLandingTitle)
 
-  showAllCourses().then()
+  showAllCourses()
 
-  showNewCourse().then()
+  showNewCourse()
 
-  showArticle().then()
+  showArticle()
+  
+  showPopularCourse()
 
-  showPopularCourse().then()
+  showMenus()
 })
 
 
