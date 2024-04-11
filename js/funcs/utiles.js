@@ -15,4 +15,10 @@ const getFromLocalStorage = (key) => {
     return token;
 }
 
-export { showSwal , saveToLocalStorage,getFromLocalStorage }
+const getUrlParam = (key) => {
+    let urlParam = new URLSearchParams(window.location.search)
+
+    return urlParam.get(key)
+}
+
+export { showSwal , saveToLocalStorage,getFromLocalStorage,getUrlParam }

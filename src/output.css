@@ -1160,13 +1160,6 @@ body {
   -webkit-line-clamp: 1;
 }
 
-.line-clamp-2 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
@@ -2665,6 +2658,11 @@ body {
 .bg-red-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
+.bg-rose-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 164 175 / var(--tw-bg-opacity));
 }
 
 .bg-rose-400 {
