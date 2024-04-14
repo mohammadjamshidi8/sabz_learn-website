@@ -310,6 +310,7 @@ const showMenus = async () => {
 };
 
 const renderCourseFunc = (array, container) => {
+  console.log('array::',array);
   if (array.length) {
     array.forEach((course) => {
       container.insertAdjacentHTML("beforeend",
@@ -426,10 +427,25 @@ const getAndShowCategory = async () => {
       }
     })
   })
+
   renderCourseFunc(courseArray, categoryCourseContainer)
-  console.log('out :', courseArray);
+
+  searchCourseFunc(data)
 
 };
+
+const searchCourseFunc = (courseArray) => {
+  const searchCourseElem = document.querySelector('#category-search')
+  const categoryCourseContainer = document.querySelector("#category-course-container");
+  
+  searchCourseElem.addEventListener('input', (e) => {
+    let userInput = e.target.value
+    const filterCourse = courseArray.filter(course => course.name.includes(userInput))
+    categoryCourseContainer.innerHTML = ''
+    categoryCourseContainer.className = 'grid grid-cols-3 gap-5'
+    renderCourseFunc(filterCourse,categoryCourseContainer)
+  })
+}
 
 export {
   showAllCourses,
