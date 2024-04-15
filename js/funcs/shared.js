@@ -312,7 +312,7 @@ const showMenus = async () => {
 };
 
 const renderCourseFunc = (array, container) => {
-  console.log('array::',array);
+  console.log('array::', array);
   if (array.length) {
     array.forEach((course) => {
       container.insertAdjacentHTML("beforeend",
@@ -399,7 +399,7 @@ const getAndShowCategory = async () => {
       const userSelectionSort = e.target.dataset.key
 
       switch (userSelectionSort) {
-        case 'cheap': const freeCourse = courseArray.sort((a,b) => {
+        case 'cheap': const freeCourse = courseArray.sort((a, b) => {
           return a.price - b.price
         })
           categoryCourseContainer.innerHTML = ''
@@ -410,20 +410,20 @@ const getAndShowCategory = async () => {
           renderCourseFunc(courseArray, categoryCourseContainer)
           break;
         case 'expensive':
-          const notFreeCourse = courseArray.sort((a,b) => {
+          const notFreeCourse = courseArray.sort((a, b) => {
             return b.price - a.price
           })
           categoryCourseContainer.innerHTML = ''
           renderCourseFunc(notFreeCourse, categoryCourseContainer)
           break;
         case 'score':
-          const scoreCourse = courseArray.sort((a,b) => {
+          const scoreCourse = courseArray.sort((a, b) => {
             return b.courseAverageScore - a.courseAverageScore
           })
           categoryCourseContainer.innerHTML = ''
           renderCourseFunc(scoreCourse, categoryCourseContainer)
           break;
-          default: categoryCourseContainer.innerHTML = ''
+        default: categoryCourseContainer.innerHTML = ''
           renderCourseFunc(courseArray, categoryCourseContainer)
           break;
       }
@@ -439,13 +439,13 @@ const getAndShowCategory = async () => {
 const searchCourseFunc = (courseArray) => {
   const searchCourseElem = document.querySelector('#category-search')
   const categoryCourseContainer = document.querySelector("#category-course-container");
-  
+
   searchCourseElem.addEventListener('input', (e) => {
     let userInput = e.target.value
     const filterCourse = courseArray.filter(course => course.name.includes(userInput))
     categoryCourseContainer.innerHTML = ''
     categoryCourseContainer.className = 'grid grid-cols-3 gap-5'
-    renderCourseFunc(filterCourse,categoryCourseContainer)
+    renderCourseFunc(filterCourse, categoryCourseContainer)
   })
 }
 
@@ -453,6 +453,8 @@ const getAndShowSingleCourse = async (key) => {
 
   let totalMins = 0
   let totalSec = 0
+  let hours = null
+  let minutes = null
 
   const singleCourseTitle = document.querySelector('#single-course-title')
   const breadcrumbTitle = document.querySelector('#breadcrumb-title')
@@ -469,6 +471,9 @@ const getAndShowSingleCourse = async (key) => {
   const singleCourseCreator = document.querySelector('#single-course-creator')
   const singleCourseCreatorImage = document.querySelector('#single-course-creator-image')
   const singleCourseFullDescription = document.querySelector('#single-course-full-des')
+  const singleCourseSessionLength = document.querySelector('#single-course-session-length')
+  const singleCourseSessionTime = document.querySelector('#single-course-session-time')
+  const singleCourseSessionAccordion = document.querySelector('#accordion-body')
 
   const res = await fetch(`http://localhost:4000/v1/courses/${key}`)
 
@@ -480,27 +485,27 @@ const getAndShowSingleCourse = async (key) => {
   breadcrumbTitle.innerHTML = data.name
   breadcrumbCategory.innerHTML = data.categoryID.title
   breadcrumbDescription.innerHTML = data.description
-  singleCoursePrice.innerHTML = data.price === 0 ? "رایگان" : `${data.price.toLocaleString()} تومان` 
-  singleCourseImage.setAttribute('src',`http://localhost:4000/courses/covers/${data.cover}`)
+  singleCoursePrice.innerHTML = data.price === 0 ? "رایگان" : `${data.price.toLocaleString()} تومان`
+  singleCourseImage.setAttribute('src', `http://localhost:4000/courses/covers/${data.cover}`)
   singleCourseRegister.innerHTML = data.isUserRegisteredToThisCourse ? 'شما دانشجوی این دوره هستید' : 'ثبت نام در دوره'
   singleCourseStatus.innerHTML = data.isComplete ? 'تکمیل شده' : 'در حال برگزاری'
   singleCourseSupport.innerHTML = data.support
-  singleCourseDate.innerHTML = data.updatedAt.slice(0,10)
+  singleCourseDate.innerHTML = data.updatedAt.slice(0, 10)
 
   if (data.sessions.length) {
     data.sessions.forEach(item => {
-      let second = +(item.time.slice(3,5))
-      let minute = +(item.time.slice(0,2))
+      let second = +(item.time.slice(3, 5))
+      let minute = +(item.time.slice(0, 2))
       totalMins += minute
       totalSec += second
-      const hours = Math.floor(totalMins / 60)
-      const minutes = Math.round((totalSec / 60) + totalMins % 60)
+      hours = Math.floor(totalMins / 60)
+      minutes = Math.round((totalSec / 60) + totalMins % 60)
       singleCourseTime.innerHTML = `${hours} ساعت و ${minutes} دفیفه`
     })
   } else {
     singleCourseTime.innerHTML = 'جلسه ای وجود ندارد'
   }
-  
+
   singleCourseStudents.innerHTML = data.courseStudentsCount
 
   singleCourseCreator.innerHTML = `${data.creator.name} | مدرس دوره `
@@ -508,6 +513,52 @@ const getAndShowSingleCourse = async (key) => {
   singleCourseCreatorImage.setAttribute('src', `http://localhost:4000/courses/covers${data.creator.profile}`)
 
   singleCourseFullDescription.innerHTML = data.description
+
+  singleCourseSessionLength.innerHTML = `${data.sessions.length} جلسه`
+  singleCourseSessionTime.innerHTML = `${hours} ساعت و ${minutes} دفیفه`
+
+  if (data.sessions.length) {
+    data.sessions.forEach((session, index) => {
+      singleCourseSessionAccordion.insertAdjacentHTML('beforeend', `
+      <div class="flex items-center justify-between py-2 border border-b-[1px] border-b-white">
+      <div class="flex items-center gap-x-3">
+          <span class="px-2 bg-white">${index + 1}</span>
+          <span>
+          <a href="#">${session.title}</a>
+          </span>
+      </div>
+      <div class="flex gap-x-1 items-center">
+      ${session.free ? '' : `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+      stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round"
+          d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+</svg>`}
+          <span>${session.time}</span>
+      </div>
+    </div>
+    `)
+    })
+  } else {
+    singleCourseSessionAccordion.insertAdjacentHTML('beforeend', `
+  <div class="flex items-center justify-between py-2 border border-b-[1px] border-b-white">
+    <div class="flex items-center gap-x-3">
+        <span class="px-2 bg-white">1</span>
+        <span>توضیح نحوه ارسال ایمیل برای دسترسی به دیزاین</span>
+    </div>
+    <div class="flex gap-x-1 items-center">
+        <span>۰۶:۵۱</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+        </svg>
+    </div>
+  </div>
+  `)
+  }
+
+
+
 }
 
 export {
