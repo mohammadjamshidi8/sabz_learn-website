@@ -13,6 +13,7 @@ const showAllCourses = async () => {
   const courses = await res.json();
 
   courses.map((course) => {
+    console.log(course);
     coursesContainer.insertAdjacentHTML(
       "beforeend",
       `
@@ -20,8 +21,9 @@ const showAllCourses = async () => {
 
           <div class="relative">
             <span class="absolute px-3 py-1 bg-green-500 text-white rounded-full top-3 right-3">۶۰%</span>
-            <img src="http://localhost:4000/courses/covers/${course.cover
-      }" class="w-full rounded-xl mb-3 aspect-video h-[170px]" alt="">
+            <a href="course.html?name=${course.shortName}">
+            <img src="http://localhost:4000/courses/covers/${course.cover}" class="w-full rounded-xl mb-3 aspect-video h-[170px]" alt="">
+            </a>
           </div>
 
           <div class="flex flex-col gap-y-4 px-6 mt-4">
@@ -447,6 +449,67 @@ const searchCourseFunc = (courseArray) => {
   })
 }
 
+const getAndShowSingleCourse = async (key) => {
+
+  let totalMins = 0
+  let totalSec = 0
+
+  const singleCourseTitle = document.querySelector('#single-course-title')
+  const breadcrumbTitle = document.querySelector('#breadcrumb-title')
+  const breadcrumbCategory = document.querySelector('#breadcrumb-category')
+  const breadcrumbDescription = document.querySelector('#single-course-des')
+  const singleCoursePrice = document.querySelector('#single-course-price')
+  const singleCourseImage = document.querySelector('#single-course-image')
+  const singleCourseRegister = document.querySelector('#single-course-register')
+  const singleCourseStatus = document.querySelector('#single-course-status')
+  const singleCourseSupport = document.querySelector('#single-course-support')
+  const singleCourseDate = document.querySelector('#single-course-date')
+  const singleCourseTime = document.querySelector('#single-course-time')
+  const singleCourseStudents = document.querySelector('#single-course-students')
+  const singleCourseCreator = document.querySelector('#single-course-creator')
+  const singleCourseCreatorImage = document.querySelector('#single-course-creator-image')
+  const singleCourseFullDescription = document.querySelector('#single-course-full-des')
+
+  const res = await fetch(`http://localhost:4000/v1/courses/${key}`)
+
+  const data = await res.json()
+
+  console.log(data);
+
+  singleCourseTitle.innerHTML = data.name
+  breadcrumbTitle.innerHTML = data.name
+  breadcrumbCategory.innerHTML = data.categoryID.title
+  breadcrumbDescription.innerHTML = data.description
+  singleCoursePrice.innerHTML = data.price === 0 ? "رایگان" : `${data.price.toLocaleString()} تومان` 
+  singleCourseImage.setAttribute('src',`http://localhost:4000/courses/covers/${data.cover}`)
+  singleCourseRegister.innerHTML = data.isUserRegisteredToThisCourse ? 'شما دانشجوی این دوره هستید' : 'ثبت نام در دوره'
+  singleCourseStatus.innerHTML = data.isComplete ? 'تکمیل شده' : 'در حال برگزاری'
+  singleCourseSupport.innerHTML = data.support
+  singleCourseDate.innerHTML = data.updatedAt.slice(0,10)
+
+  if (data.sessions.length) {
+    data.sessions.forEach(item => {
+      let second = +(item.time.slice(3,5))
+      let minute = +(item.time.slice(0,2))
+      totalMins += minute
+      totalSec += second
+      const hours = Math.floor(totalMins / 60)
+      const minutes = Math.round((totalSec / 60) + totalMins % 60)
+      singleCourseTime.innerHTML = `${hours} ساعت و ${minutes} دفیفه`
+    })
+  } else {
+    singleCourseTime.innerHTML = 'جلسه ای وجود ندارد'
+  }
+  
+  singleCourseStudents.innerHTML = data.courseStudentsCount
+
+  singleCourseCreator.innerHTML = `${data.creator.name} | مدرس دوره `
+
+  singleCourseCreatorImage.setAttribute('src', `http://localhost:4000/courses/covers${data.creator.profile}`)
+
+  singleCourseFullDescription.innerHTML = data.description
+}
+
 export {
   showAllCourses,
   showNewCourse,
@@ -454,4 +517,5 @@ export {
   showPopularCourse,
   showMenus,
   getAndShowCategory,
+  getAndShowSingleCourse
 };

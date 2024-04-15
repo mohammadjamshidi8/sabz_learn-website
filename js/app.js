@@ -1,11 +1,11 @@
 import { showAllCourses,showNewCourse,showArticle,showPopularCourse,showMenus } from "./funcs/shared.js";
+AOS.init();
 
 const $ = document
 
 let firstLandingTitle = $.querySelector('#landing__text1')
 let secondLandingTitle = $.querySelector('#landing__text2')
 
-AOS.init();
 
 // new course slider start
 const swiper = new Swiper('.swiper', {

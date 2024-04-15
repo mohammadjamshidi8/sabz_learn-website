@@ -55,29 +55,36 @@ const login = () => {
         body: JSON.stringify(userInfo)
     }).then(res => {
         if (res.status === 200) {
-            showSwal('خوش آمدید', 'success', 'صفحه اصلی',resault => location.href = 'index.html')
+            showSwal('خوش آمدید', 'success', 'صفحه اصلی', resault => location.href = 'index.html')
             return res.json()
         } else if (res.status === 401) {
             showSwal('نام کاربری یا رمز اشتباه است', 'error', 'اصلاح اطلاعات')
         }
     }).then(data => {
-            saveToLocalStorage('loginToken', data.accessToken)
-            console.log('data: ',data);
-        })
+        saveToLocalStorage('loginToken', data.accessToken)
+        console.log('data: ', data);
+    })
 }
 
 
 const getMe = () => {
-    fetch('http://localhost:4000/v1/auth/me',{
+    fetch('http://localhost:4000/v1/auth/me', {
         headers: {
             Authorization: `bearer ${getFromLocalStorage('loginToken')}`
         },
     }).then(res => res.json())
-    .then(data => {
-        const showUsername = document.querySelector('#show-username')
-        showUsername.innerHTML = data.name
-        showUsername.setAttribute('href','#')
-    })
+        .then(data => {
+            const showUsername = document.querySelector('#show-username')
+            
+            const tokenExist = getFromLocalStorage('loginToken')
+            if (tokenExist) {
+                showUsername.innerHTML = data.name
+                showUsername.setAttribute('href', '#')
+
+            } else {
+                showUsername.innerHTML = ' ورود | ثبت نام'
+            }
+        })
 }
 
 export { register, login, getMe }

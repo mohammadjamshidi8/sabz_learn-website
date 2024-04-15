@@ -1,3 +1,6 @@
+import { getUrlParam } from "./funcs/utiles.js"
+import { getAndShowSingleCourse,showMenus } from "./funcs/shared.js"
+
 // course detail accordion start
 
 let accordionHead = document.querySelector('#accordion-head')
@@ -9,3 +12,14 @@ accordionHead.addEventListener('click', () => {
 
 
 // course detail accordion ends
+
+
+window.addEventListener('load', () => {
+
+  showMenus()
+
+  const urlParams = getUrlParam('name')
+
+  getAndShowSingleCourse(urlParams)
+
+})
