@@ -479,7 +479,6 @@ const getAndShowSingleCourse = async (key) => {
 
   const data = await res.json()
 
-  console.log(data);
 
   singleCourseTitle.innerHTML = data.name
   breadcrumbTitle.innerHTML = data.name
@@ -515,7 +514,7 @@ const getAndShowSingleCourse = async (key) => {
   singleCourseFullDescription.innerHTML = data.description
 
   singleCourseSessionLength.innerHTML = `${data.sessions.length} جلسه`
-  singleCourseSessionTime.innerHTML = `${hours} ساعت و ${minutes} دفیفه`
+  singleCourseSessionTime.innerHTML = (hours && minutes) ? `${hours} ساعت و ${minutes} دفیفه` : `0 دقیقه`
 
   if (data.sessions.length) {
     data.sessions.forEach((session, index) => {
@@ -542,22 +541,56 @@ const getAndShowSingleCourse = async (key) => {
     singleCourseSessionAccordion.insertAdjacentHTML('beforeend', `
   <div class="flex items-center justify-between py-2 border border-b-[1px] border-b-white">
     <div class="flex items-center gap-x-3">
-        <span class="px-2 bg-white">1</span>
-        <span>توضیح نحوه ارسال ایمیل برای دسترسی به دیزاین</span>
+        <span class="text-rose-400">هنوز جلسه ای ضبط نشده!</span>
     </div>
-    <div class="flex gap-x-1 items-center">
-        <span>۰۶:۵۱</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
-        </svg>
-    </div>
+    
   </div>
   `)
   }
 
 
+
+}
+
+const getAndShowRelatedCourse = async (key) => {
+
+  const singleCourseRelatedWrapper = document.querySelector('#single-course-related-wrapper')
+
+  const res = await fetch(`http://localhost:4000/v1/courses/related/${key}`)
+  const data = await res.json()
+
+  console.log(data);
+
+  if (data.length) {
+    data.forEach(course => {
+      singleCourseRelatedWrapper.insertAdjacentHTML('beforeend', `
+      <div class="rounded-md bg-gray-200 flex items-center justify-between p-3 mt-5">
+       <div class="flex items-center gap-x-3">
+           <img src="http://localhost:4000/courses/covers/${course.cover}" class="h-14 rounded-md"
+               alt="">
+           <span>
+               <a href="course.html?name=${course.shortName}">${course.name}</a>
+           </span>
+       </div>
+       <div class="flex items-center gap-x-1">
+           <span class="text-sky-400">
+               <a href="course.html?name=${course.shortName}">مشاهده</a>
+           </span>
+           <div class="bg-sky-400 rounded-full p-1">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke-width="2.5" stroke="currentColor" class="w-3 h-3 text-white">
+                   <path stroke-linecap="round" stroke-linejoin="round"
+                       d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+               </svg>
+           </div>
+       </div>
+      </div>
+    `)
+    })
+
+  } else {
+    // 
+  }
 
 }
 
@@ -568,5 +601,6 @@ export {
   showPopularCourse,
   showMenus,
   getAndShowCategory,
-  getAndShowSingleCourse
+  getAndShowSingleCourse,
+  getAndShowRelatedCourse
 };
