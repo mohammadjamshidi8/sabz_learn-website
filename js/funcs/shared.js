@@ -28,7 +28,8 @@ const showAllCourses = async () => {
 
           <div class="flex flex-col gap-y-4 px-6 mt-4">
 
-            <h3 class="font-black font-dana line-clamp-1">${course.name}</h3>
+            <h3 class="font-black font-dana line-clamp-1">
+            <a href="course.html?name=${course.shortName}">${course.name}</a></h3>
 
             <span class="line-clamp-1">${course.description}</span>
 
@@ -474,6 +475,7 @@ const getAndShowSingleCourse = async (key) => {
   const singleCourseSessionLength = document.querySelector('#single-course-session-length')
   const singleCourseSessionTime = document.querySelector('#single-course-session-time')
   const singleCourseSessionAccordion = document.querySelector('#accordion-body')
+  const singleCourseComment = document.querySelector('#single-course-comment')
 
   const res = await fetch(`http://localhost:4000/v1/courses/${key}`)
 
@@ -549,6 +551,72 @@ const getAndShowSingleCourse = async (key) => {
   }
 
 
+  if (data.comments.length) {
+    data.comments.map(comment => {
+      singleCourseComment.insertAdjacentHTML('beforeend', `
+      <div class="flex flex-col bg-gray-100 p-4 gap-y-3 rounded-md">
+                              <div class="flex justify-between items-center">
+                                  <div class="flex items-center gap-x-4">
+                                      <img src="./images/profiles/5872841a47b10069777793cbce83eacf.png"
+                                          class="mix-blend-multiply w-14 h-14" alt="">
+                                      <div class="flex flex-col gap-y-2">
+                                          <span>${comment.creator.name} | ${comment.creator.role === 'USER' ? 'کاربر' : 'مدرس'}</span>
+                                          <span>${comment.updatedAt.slice(0,10)}</span>
+                                      </div>
+                                  </div>
+                                  <div>
+                                      <button
+                                          class="text-sky-500 w-10 h-10 rounded-full border-[1px] flex justify-center items-center border-sky-500 hover:bg-sky-500 transition duration-200 group">
+                                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                              stroke-width="2" stroke="currentColor"
+                                              class="w-4 h-4 text-sky-500 group-hover:text-white">
+                                              <path stroke-linecap="round" stroke-linejoin="round"
+                                                  d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                                          </svg>
+                                      </button>
+                                  </div>
+                              </div>
+  
+                              <div class="w-full h-[1px] bg-gray-300 mx-auto"></div>
+  
+                              <div class="flex flex-col gap-y-5">
+                                  <span>
+                                  ${comment.body}
+                                  </span>
+                                  ${comment.answerContent ? `<div class="flex flex-col gap-y-4 bg-gray-200 p-5 rounded-md">
+                                  <div class="flex justify-between items-center">
+                                      <div class="flex items-center gap-x-4">
+                                          <img src="./images/profiles/5872841a47b10069777793cbce83eacf.png"
+                                              class="mix-blend-multiply w-14 h-14" alt="">
+                                          <div class="flex flex-col gap-y-2">
+                                              <span>${comment.answerContent.creator.name} | ${comment.answerContent.creator.name === 'USER' ? 'کاربر' : 'مدرس'}</span>
+                                              <span>${comment.answerContent.updatedAt.slice(0,10)}</span>
+                                          </div>
+                                      </div>
+                                  </div>
+  
+                                  <div class="w-full h-[1px] bg-white mx-auto"></div>
+  
+                                  <div>
+                                      <span>
+                                      ${comment.answerContent.body}
+                                      </span>
+                                  </div>
+                              </div>` : ''}
+                              </div>
+                          </div>
+      `)
+    })
+  } else {
+    singleCourseComment.insertAdjacentHTML('beforeend',`
+    <div class="bg-red-200 flex items-center px-4 py-3 rounded-md gap-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+        </svg>
+        <span>نظری برای این دوره ثبت نشده!!</span>                              
+    </div>
+    `)
+  }
 
 }
 
@@ -559,7 +627,6 @@ const getAndShowRelatedCourse = async (key) => {
   const res = await fetch(`http://localhost:4000/v1/courses/related/${key}`)
   const data = await res.json()
 
-  console.log(data);
 
   if (data.length) {
     data.forEach(course => {
