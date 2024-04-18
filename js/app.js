@@ -1,4 +1,4 @@
-import { showAllCourses,showNewCourse,showArticle,showPopularCourse,showMenus } from "./funcs/shared.js";
+import { showAllCourses,showNewCourse,showArticle,showPopularCourse,showMenus,redirectToSearchPage,submitNewLetter } from "./funcs/shared.js";
 AOS.init();
 
 const $ = document
@@ -41,9 +41,13 @@ window.addEventListener('load', () => {
   typeWriter(firstLandingText, typeIndex, firstLandingTitle)
   typeWriter(secondLandingText, typeIndex, secondLandingTitle)
 
+  redirectToSearchPage()
+
   showAllCourses()
 
   showNewCourse()
+
+  submitNewLetter()
 
   showArticle()
   

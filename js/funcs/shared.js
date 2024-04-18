@@ -1,5 +1,5 @@
 import { getMe, login } from "./auth.js";
-import { getUrlParam } from "./utiles.js";
+import { getUrlParam , getFromLocalStorage,showSwal} from "./utiles.js";
 
 window.addEventListener("load", () => {
   getMe();
@@ -378,6 +378,37 @@ const renderCourseFunc = (array, container) => {
   }
 }
 
+const submitNewLetter = () => {
+  const newsletterEmailElem = document.querySelector('#newsletter-email')
+  const newsletterBtnElem = document.querySelector('#newsletter-btn')
+
+  const newEmailObj = {
+    email: newsletterEmailElem.value.trim()
+  }
+
+  newsletterBtnElem.addEventListener('click', async () => {
+
+    const res = await fetch('http://localhost:4000/v1/newsletters', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newEmailObj)
+    })
+
+    console.log(res);
+
+    if (res.ok) {
+      showSwal(`شما با ایمیل ${newEmailObj.email} در خبرنامه ثبت نام شدید`, "success", "خیله خب")
+      return res.json()
+    } else {
+      showSwal("ایمیل تکراری است", "error", "اصلاح اطلاعات")
+    }
+
+  })
+
+}
+
 const getAndShowCategory = async () => {
 
   let categoryName = getUrlParam("cat");
@@ -550,6 +581,7 @@ const getAndShowSingleCourse = async (key) => {
   `)
   }
 
+  console.log(data);
 
   if (data.comments.length) {
     data.comments.map(comment => {
@@ -561,7 +593,7 @@ const getAndShowSingleCourse = async (key) => {
                                           class="mix-blend-multiply w-14 h-14" alt="">
                                       <div class="flex flex-col gap-y-2">
                                           <span>${comment.creator.name} | ${comment.creator.role === 'USER' ? 'کاربر' : 'مدرس'}</span>
-                                          <span>${comment.updatedAt.slice(0,10)}</span>
+                                          <span>${comment.updatedAt.slice(0, 10)}</span>
                                       </div>
                                   </div>
                                   <div>
@@ -590,7 +622,7 @@ const getAndShowSingleCourse = async (key) => {
                                               class="mix-blend-multiply w-14 h-14" alt="">
                                           <div class="flex flex-col gap-y-2">
                                               <span>${comment.answerContent.creator.name} | ${comment.answerContent.creator.name === 'USER' ? 'کاربر' : 'مدرس'}</span>
-                                              <span>${comment.answerContent.updatedAt.slice(0,10)}</span>
+                                              <span>${comment.answerContent.updatedAt.slice(0, 10)}</span>
                                           </div>
                                       </div>
                                   </div>
@@ -608,7 +640,7 @@ const getAndShowSingleCourse = async (key) => {
       `)
     })
   } else {
-    singleCourseComment.insertAdjacentHTML('beforeend',`
+    singleCourseComment.insertAdjacentHTML('beforeend', `
     <div class="bg-red-200 flex items-center px-4 py-3 rounded-md gap-x-4">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
@@ -661,6 +693,173 @@ const getAndShowRelatedCourse = async (key) => {
 
 }
 
+
+const redirectToSearchPage = () => {
+  const globalSearchInputElem = document.querySelector('#search-bar')
+  const globalSearchBtnElem = document.querySelector('#search-bar-btn')
+
+  globalSearchBtnElem.addEventListener('click', (e) => {
+    e.preventDefault()
+    console.log('true');
+    location.href = `search.html?search=${globalSearchInputElem.value}`
+  })
+}
+
+
+const showSearchedCourses = async (key) => {
+
+  const searchCourseContainer = document.querySelector('#search-course-container')
+  const searchArticlesContainer = document.querySelector('#search-articles-container')
+
+  const res = await fetch(`http://localhost:4000/v1/search/${key}`)
+  const data = await res.json()
+
+  console.log(data);
+
+  if (data.allResultCourses.length) {
+    data.allResultCourses.map(course => {
+      searchCourseContainer.insertAdjacentHTML('beforeend', `
+    <div class="bg-white rounded-md">
+
+    <div class="relative">
+        <span class="absolute px-3 py-1 bg-green-500 text-white rounded-full top-3 right-3">۶۰%</span>
+        <a href="course.html?name=${course.shortName}">
+            <img src="http://localhost:4000/courses/covers/${course.cover}"
+                class="w-full rounded-xl mb-3 aspect-video h-[170px]" alt="">
+        </a>
+    </div>
+
+    <div class="flex flex-col gap-y-4 px-6 mt-4">
+
+        <h3 class="font-black font-dana line-clamp-1">
+            <a href="course.html?name=${course.shortName}">${course.name}</a>
+        </h3>
+
+        <span class="line-clamp-1">${course.description}</span>
+
+        <div class="flex items-center justify-end">
+            
+            <div class="flex gap-x-1 items-center">
+                <span class="text-yellow-600">۵.۰</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="orange" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="orange" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                </svg>
+            </div>
+        </div>
+        <div class="w-[90%] h-[1px] bg-slate-300 self-center"></div>
+
+        <div class="flex justify-center items-center">
+            
+            <div class="flex">
+                <span class="text-lg text-green-500 font-dana font-black">${course.price === 0 ? "رایگان" :
+          course.price.toLocaleString()
+        }</span>
+            </div>
+        </div>
+    </div>
+</div>
+    `)
+    })
+
+  } else {
+    searchCourseContainer.className = ''
+    searchCourseContainer.insertAdjacentHTML('beforeend',`
+    <div class="bg-yellow-200 flex items-center px-4 py-3 rounded-md gap-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+        </svg>
+        <span>دوره ه ای وجود ندارد!</span>                              
+    </div>
+    `)
+  }
+
+
+  if (data.allResultArticles.length) {
+    data.allResultArticles.map(article => {
+      searchArticlesContainer.insertAdjacentHTML('beforeend', `
+    <div class="bg-white rounded-md pb-10">
+
+    <div class="relative">
+        <a href="">
+            <img src="http://localhost:4000/courses/covers/${article.cover}"
+                class="w-full rounded-xl mb-3 aspect-video h-[170px] object-contain" alt="">
+        </a>
+    </div>
+
+    <div class="flex flex-col gap-y-4 px-6 mt-4">
+
+        <h3 class="font-black font-dana line-clamp-1">
+            <a href="">${article.title}</a>
+        </h3>
+
+        <span class="line-clamp-1">${article.body}</span>
+
+        <div class="flex items-center justify-end">
+        </div>
+    </div>
+</div>
+    `)
+    })
+
+  } else {
+    searchArticlesContainer.className = ''
+    searchArticlesContainer.insertAdjacentHTML('beforeend',`
+    <div class="bg-sky-200 flex items-center px-4 py-3 rounded-md gap-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+        </svg>
+        <span>مقاله ای وجود ندارد!!</span>                              
+    </div>
+    `)
+  }
+
+}
+
+const submitCommentFunc = async () => {
+  const submitCommentContainer = document.querySelector('#submit-comment-container')
+  const newCommentBtn = document.querySelector('#new-comment-btn')
+  const cancelCommentBtn = document.querySelector('#cancel-comment')
+  const sendCommentBtn = document.querySelector('#send-comment') 
+  const writeComment = document.querySelector('#write-comment')
+
+  newCommentBtn.addEventListener('click', () => {
+    submitCommentContainer.classList.toggle('hidden')
+  })
+
+  cancelCommentBtn.addEventListener('click', () => {
+    submitCommentContainer.classList.toggle('hidden')
+  })
+
+  const userToken = getFromLocalStorage('loginToken')
+  console.log(userToken);
+
+  sendCommentBtn.addEventListener('click', async () => {
+
+    const newCommentObj = {
+      body : writeComment.value.trim(),
+      courseShortName: getUrlParam('name'),
+      score : 5
+    }
+
+    const res = await fetch(`http://localhost:4000/v1/comments`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${userToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newCommentObj),
+  })
+
+  
+  const data = await res.json()
+
+
+  } )
+
+}
+
 export {
   showAllCourses,
   showNewCourse,
@@ -669,5 +868,9 @@ export {
   showMenus,
   getAndShowCategory,
   getAndShowSingleCourse,
-  getAndShowRelatedCourse
+  getAndShowRelatedCourse,
+  redirectToSearchPage,
+  showSearchedCourses,
+  submitCommentFunc,
+  submitNewLetter
 };

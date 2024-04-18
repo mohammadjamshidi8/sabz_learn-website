@@ -396,7 +396,7 @@
                                 <span class="text-2xl font-bold">نظرات</span>
                             </div>
 
-                            <button
+                            <button id="new-comment-btn"
                                 class="flex items-center gap-x-1 bg-green-500 text-white hover:bg-green-600 transition duration-200 px-4 py-2 rounded-full">
                                 <span>ایجاد نظر جدید</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -406,6 +406,27 @@
                                 </svg>
                             </button>
                         </div>
+
+                        <!-- submit comment section start -->
+
+                        <div id="submit-comment-container" class="flex flex-col gap-y-4 hidden">
+                            <div class="flex items-center gap-x-3">
+                                <img src="./images/profiles/5872841a47b10069777793cbce83eacf.png" class="w-12" alt="">
+                                <div class="flex flex-col gap-y-1">
+                                    <span>محمد</span>
+                                    <span>ثبت نظر جدید</span>
+                                </div>
+                            </div>
+                            <div>
+                                <textarea id="write-comment" class="w-full h-52 bg-gray-100 rounded-lg p-5 outline-none shadow focus:shadow-lg" placeholder="نظر خود را بنویسید ..."></textarea>
+                            </div>
+                            <div id="cancel-comment" class="flex justify-end gap-x-5">
+                                <button class="px-10 py-2 rounded-full border-[1px] border-green-500 hover:border-white hover:text-white hover:bg-green-500 transition duration-150">لغو</button>
+                                <button id="send-comment" class="px-10 py-2 rounded-full text-white bg-green-500 border-[1px] border-white hover:border-green-500 hover:text-black hover:bg-transparent transition duration-150">ارسال</button>
+                            </div>
+                        </div>
+
+                        <!-- submit comment section ends -->
 
                         <!-- comment from Js -->
 

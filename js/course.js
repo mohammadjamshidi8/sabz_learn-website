@@ -1,5 +1,5 @@
 import { getUrlParam } from "./funcs/utiles.js"
-import { getAndShowSingleCourse,showMenus,getAndShowRelatedCourse } from "./funcs/shared.js"
+import { getAndShowSingleCourse,showMenus,getAndShowRelatedCourse,submitCommentFunc } from "./funcs/shared.js"
 
 // course detail accordion start
 
@@ -21,6 +21,8 @@ window.addEventListener('load', () => {
   const urlParams = getUrlParam('name')
 
   getAndShowSingleCourse(urlParams)
+
+  submitCommentFunc()
 
   getAndShowRelatedCourse(urlParams)
 
